@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { category: string 
   };
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({ params }: { params: { category: string } }) {
   const categoryName = params.category.charAt(0).toUpperCase() + params.category.slice(1);
   const articles = getArticlesByCategory(categoryName);
   
