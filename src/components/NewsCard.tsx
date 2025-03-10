@@ -11,7 +11,7 @@ interface NewsCardProps {
   slug: string;
 }
 
-const NewsCard = ({ id, title, excerpt, imageUrl, category, date, slug }: NewsCardProps) => {
+const NewsCard = ({ title, excerpt, imageUrl, category, date, slug }: NewsCardProps) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="relative h-48 w-full">

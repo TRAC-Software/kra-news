@@ -26,7 +26,7 @@ const NewsletterSignup = () => {
       
       setIsSuccess(true);
       setEmail('');
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -46,7 +46,7 @@ const NewsletterSignup = () => {
         {isSuccess ? (
           <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-6 max-w-md mx-auto">
             <p className="font-medium">Thank you for subscribing!</p>
-            <p className="text-sm mt-1">You'll start receiving our newsletter soon.</p>
+            <p className="text-sm mt-1">You&apos;ll start receiving our newsletter soon.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
