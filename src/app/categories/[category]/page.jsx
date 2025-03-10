@@ -1,15 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
 import NewsCard from '@/components/NewsCard';
 import { getArticlesByCategory } from '@/data/mockData';
 
-type Props = {
-  params: { category: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }) {
   const categoryName = params.category.charAt(0).toUpperCase() + params.category.slice(1);
   
   return {
@@ -18,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }) {
   const categoryName = params.category.charAt(0).toUpperCase() + params.category.slice(1);
   const articles = getArticlesByCategory(categoryName);
   

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
 import { getArticleBySlug, articles } from '@/data/mockData';
 import { parseHtml } from '@/utils/htmlParser';
 
@@ -11,12 +10,7 @@ export async function generateStaticParams() {
   }));
 }
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }) {
   const article = getArticleBySlug(params.slug);
   
   if (!article) {
@@ -32,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function ArticlePage({ params }) {
   const article = getArticleBySlug(params.slug);
   
   if (!article) {

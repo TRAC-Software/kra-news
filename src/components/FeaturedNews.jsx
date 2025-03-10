@@ -1,16 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface FeaturedNewsProps {
-  title: string;
-  excerpt: string;
-  imageUrl: string;
-  category: string;
-  date: string;
-  slug: string;
-}
-
-const FeaturedNews = ({ title, excerpt, imageUrl, category, date, slug }: FeaturedNewsProps) => {
+const FeaturedNews = ({ title, excerpt, imageUrl, category, date, slug }) => {
   return (
     <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
       <Image
