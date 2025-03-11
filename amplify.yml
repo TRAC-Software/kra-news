@@ -3,16 +3,23 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        # Clean up disk space before build
+        - rm -rf node_modules/.cache
+        - npm cache clean --force
+        - npm ci --no-audit --no-fund
     build:
       commands:
+        # Build the application
         - npm run build
+        # Clean up after build to save space
+        - rm -rf node_modules/.cache
+        - rm -rf .next/cache
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-      # Commenting out .next cache to reduce disk space usage
-      # - .next/cache/**/* 
+  # Completely disable caching to avoid disk space issues
+  # cache:
+  #   paths:
+  #     - node_modules/**/*
+  #     - .next/cache/**/* 
