@@ -14,4 +14,5 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-      - .next/cache/**/* 
+      # Commenting out .next cache to reduce disk space usage
+      # - .next/cache/**/* 
